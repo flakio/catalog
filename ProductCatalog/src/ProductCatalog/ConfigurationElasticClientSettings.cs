@@ -19,7 +19,7 @@ namespace ProductCatalog
             DefaultItemCount = count; 
 
 
-            Uri uri = new Uri(configuration.Get("ConnectionString"));
+            Uri uri = new Uri(configuration.Get("ELASTICSEARCH_PORT"));
             
             ConnectionSettings cs = new ConnectionSettings(uri, configuration.Get("DefaultIndex"));
             Client = new ElasticClient(cs);

@@ -21,8 +21,7 @@ namespace ProductCatalog
         {
             var builder = new ConfigurationBuilder(env.ApplicationBasePath)
                         .AddJsonFile("config.json")
-                        .AddEnvironmentVariables(); //All environment variables in the process's context flow in as configuration values.
-
+                        .AddEnvironmentVariables(); 
             Configuration = builder.Build();
 
         }
@@ -35,6 +34,9 @@ namespace ProductCatalog
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+
+            //setup options to use for controllers
+            services.AddOptions(); 
 
             services.AddScoped<IConfigurationElasticClientSettings>(s =>
             {
