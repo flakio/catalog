@@ -10,6 +10,7 @@ using Microsoft.Framework.DependencyInjection;
 using ProductCatalog.Models;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Runtime;
+using Microsoft.Framework.Logging;
 
 namespace ProductCatalog
 {
@@ -45,7 +46,7 @@ namespace ProductCatalog
         }
 
         // Configure is called after ConfigureServices is called.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
 
             // Configure the HTTP request pipeline.
@@ -53,13 +54,13 @@ namespace ProductCatalog
 
             // Add MVC to the request pipeline.
             app.UseMvc();
-            // Add the following route for porting Web API 2 controllers.
-            // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+
+            //add basic logging
+            //loggerFactory.MinimumLevel = LogLevel.Information;
+            //loggerFactory.AddConsole();
 
             //Add Sample Data to Elastic Search
             var service = app.ApplicationServices.GetService<IConfigurationElasticClientSettings>();
-           
-
             var helper = new ElasticSearchDataHelper(service);
             helper.AddTestData().Wait();
 

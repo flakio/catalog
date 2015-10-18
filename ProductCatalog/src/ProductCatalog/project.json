@@ -8,13 +8,16 @@
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
         "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
         "NEST": "1.7.1",
-"Kestrel": "1.0.0-beta6",
-"Microsoft.Framework.Configuration.Json": "1.0.0-beta6"
+        "Kestrel": "1.0.0-beta6",
+        "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
+        "Microsoft.Framework.Logging": "1.0.0-beta6",
+        "Microsoft.Framework.Logging.Console": "1.0.0-beta6"
+
     },
 
     "commands": {
         "web": "Microsoft.AspNet.Hosting --config hosting.ini",
-"kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
     },
 
     "frameworks": {

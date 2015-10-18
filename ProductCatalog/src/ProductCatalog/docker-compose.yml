@@ -1,0 +1,7 @@
+helloworld:
+  image: "hello-world"
+  links:
+    - redis
+redis:
+  image: "redis"
+  

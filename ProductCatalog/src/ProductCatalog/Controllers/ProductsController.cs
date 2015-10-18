@@ -6,7 +6,7 @@ using Microsoft.AspNet.Mvc;
 using Products.Models;
 using Nest;
 using ProductCatalog;
-
+using Microsoft.Framework.Logging;
 
 namespace Products.Api.Controllers
 {
@@ -15,11 +15,13 @@ namespace Products.Api.Controllers
     {
         private readonly ElasticClient client;
         private readonly int itemcount;
+        private ILogger<Products> log;
 
-        public Products(IConfigurationElasticClientSettings elasticClientSettings)
+        public Products(IConfigurationElasticClientSettings elasticClientSettings, ILogger<Products> logger)
         {
             itemcount = elasticClientSettings.DefaultItemCount;
             client = elasticClientSettings.Client;
+            log = logger; 
         }
 
         [HttpGet]
