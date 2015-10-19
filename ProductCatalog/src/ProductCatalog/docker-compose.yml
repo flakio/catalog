@@ -1,7 +1,14 @@
-helloworld:
-  image: "hello-world"
-  links:
-    - redis
-redis:
-  image: "redis"
-  
+productcatalog:
+  image: "thedanfernandez/productcatalog"
+  ports: 
+    - "80:80"
+  tty: true
+  links: 
+    - elasticsearch
+  environment: 
+    - server.urls=http://*:80
+
+elasticsearch:
+  image: "elasticsearch"
+  ports: 
+    - "9200:9200"

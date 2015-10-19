@@ -41,14 +41,14 @@ namespace ProductCatalog
 
             services.AddScoped<IConfigurationElasticClientSettings>(s =>
             {
-                return new ConfigurationElasticClientSettings(Configuration.GetConfigurationSection("ElasticSearch"));
+                return new ConfigurationElasticClientSettings(Configuration);
             });
         }
 
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-
+            
             // Configure the HTTP request pipeline.
             app.UseStaticFiles();
 
@@ -56,12 +56,14 @@ namespace ProductCatalog
             app.UseMvc();
 
             //add basic logging
-            //loggerFactory.MinimumLevel = LogLevel.Information;
-            //loggerFactory.AddConsole();
+            loggerFactory.MinimumLevel = LogLevel.Information;
+            loggerFactory.AddConsole();
+            
+            
 
             //Add Sample Data to Elastic Search
             var service = app.ApplicationServices.GetService<IConfigurationElasticClientSettings>();
-            var helper = new ElasticSearchDataHelper(service);
+            var helper = new ElasticSearchDataHelper(service, loggerFactory);
             helper.AddTestData().Wait();
 
         }
