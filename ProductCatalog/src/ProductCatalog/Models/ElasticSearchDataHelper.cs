@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nest;
-using Microsoft.Framework.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace ProductCatalog.Models
 {

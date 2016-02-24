@@ -1,39 +1,36 @@
 {
-    "webroot": "wwwroot",
-    "version": "1.0.0-*",
+  "version": "1.0.0-*",
+  "webroot": "wwwroot",
 
-    "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-beta6",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
-        "NEST": "1.7.1",
-        "Kestrel": "1.0.0-beta6",
-        "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
-        "Microsoft.Framework.Logging": "1.0.0-beta6",
-        "Microsoft.Framework.Logging.Console": "1.0.0-beta6"
 
-    },
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
+    "NEST": "1.7.1",
+    "ProductCatalog.Repository": "1.0.0-*"
+  },
 
-    "commands": {
-        "web": "Microsoft.AspNet.Hosting --config hosting.ini",
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
-    },
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel"
+  },
 
-    "frameworks": {
-        "dnx451": { }
-    },
+  "frameworks": {
+    "dnx451": { }
+  },
 
-    "exclude": [
-        "wwwroot",
-        "node_modules",
-        "bower_components"
-    ],
-    "publishExclude": [
-        "node_modules",
-        "bower_components",
-        "**.xproj",
-        "**.user",
-        "**.vspscc"
-    ]
+  "exclude": [
+    "wwwroot",
+    "node_modules"
+  ],
+  "publishExclude": [
+    "node_modules",
+    "**.xproj",
+    "**.user",
+    "**.vspscc"
+  ]
 }

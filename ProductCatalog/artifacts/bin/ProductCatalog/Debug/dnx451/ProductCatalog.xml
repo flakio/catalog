@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductCatalog</name>
+    </assembly>
+    <members>
+        <member name="M:Products.Models.Product.#ctor">
+            <summary>
+            TODO: Temporary hack to populate the orderdetails until EF does this automatically. 
+            </summary>
+        </member>
+    </members>
+</doc>

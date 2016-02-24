@@ -6,7 +6,8 @@ using Microsoft.AspNet.Mvc;
 using Products.Models;
 using Nest;
 using ProductCatalog;
-using Microsoft.Framework.Logging;
+using Microsoft.Extensions.Logging;
+using ProductCatalog.Repository;
 
 namespace Products.Api.Controllers
 {
@@ -27,6 +28,12 @@ namespace Products.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Product>> Get()
         {
+            var x = new Class1();
+            if (x.IsActive())
+            {
+                log.LogInformation(x.IsActive().ToString()); 
+            }
+
             //return top x# based on item count sorted by title
             var result = await client.SearchAsync<Product>(s => s.Size(itemcount).SortAscending(p => p.Title));
             return result.Documents;

@@ -6,11 +6,11 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using ProductCatalog.Models;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.Runtime;
-using Microsoft.Framework.Logging;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace ProductCatalog
 {
@@ -20,7 +20,8 @@ namespace ProductCatalog
         public IConfiguration Configuration { get; private set; }
         public Startup(IApplicationEnvironment env)
         {
-            var builder = new ConfigurationBuilder(env.ApplicationBasePath)
+
+            var builder = new ConfigurationBuilder()
                         .AddJsonFile("config.json")
                         .AddEnvironmentVariables(); 
             Configuration = builder.Build();

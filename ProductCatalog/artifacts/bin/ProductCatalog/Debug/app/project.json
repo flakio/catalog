@@ -1,0 +1,28 @@
+{
+  "webroot": "wwwroot",
+  "version": "1.0.0-*",
+  "dependencies": {
+    "ProductCatalog": "1.0.0"
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Hosting --config hosting.ini",
+    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini"
+  },
+  "frameworks": {
+    "dnx451": {}
+  },
+  "exclude": [
+    "wwwroot",
+    "node_modules",
+    "bower_components"
+  ],
+  "publishExclude": [
+    "node_modules",
+    "bower_components",
+    "**.xproj",
+    "**.user",
+    "**.vspscc"
+  ],
+  "entryPoint": "ProductCatalog",
+  "loadable": false
+}

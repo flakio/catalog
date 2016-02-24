@@ -9,6 +9,6 @@ productcatalog:
     - server.urls=http://*:80
 
 elasticsearch:
-  image: "elasticsearch"
-  ports: 
+  image: elasticsearch
+  ports:
     - "9200:9200"
