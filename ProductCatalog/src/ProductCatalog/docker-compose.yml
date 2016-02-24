@@ -1,12 +1,12 @@
 productcatalog:
   image: "thedanfernandez/productcatalog"
   ports: 
-    - "80:80"
+    - "5000:5000"
   tty: true
   links: 
     - elasticsearch
   environment: 
-    - server.urls=http://0.0.0.0:80
+    - server.urls=http://0.0.0.0:5000
 
 elasticsearch:
   image: elasticsearch
