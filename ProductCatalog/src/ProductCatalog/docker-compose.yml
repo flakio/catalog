@@ -6,7 +6,7 @@ productcatalog:
   links: 
     - elasticsearch
   environment: 
-    - server.urls=http://*:80
+    - server.urls=http://0.0.0.0:80
 
 elasticsearch:
   image: elasticsearch
