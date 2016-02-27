@@ -22,6 +22,8 @@ namespace Products.Models
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
+        public int Quantity { get; set; }
+
         [Required]
         [StringLength(160, MinimumLength = 2)]
         public string Title { get; set; }
