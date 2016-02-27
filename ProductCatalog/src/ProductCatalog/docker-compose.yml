@@ -1,5 +1,5 @@
 productcatalog:
-  image: "thedanfernandez/productcatalog"
+  image: "flakio/catalogservice:4"
   ports: 
     - "5000:5000"
   tty: true
