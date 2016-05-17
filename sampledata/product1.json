@@ -1,0 +1,8 @@
+{
+    "id": 1,
+    "categoryId": 1,
+    "title": "Lazer Blaster",
+    "description": "Don't get stuck on mars without it.",
+    "productArtUrl": "https://flak.blob.core.windows.net/catalog/lazer.jpg",
+    "salePrice": 10
+}
