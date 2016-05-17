@@ -1,0 +1,42 @@
+{
+  "id": "/catalog/catalogservice",
+  "cmd": null,
+  "cpus": 0.25,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "flakio/catalogservice:4",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 0,
+          "servicePort": 10000,
+          "protocol": "tcp",
+          "name": "http",
+          "labels": {
+            "VIP_0": "192.168.1.1:80"
+          }
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "env": {
+    "ELASTICSEARCH_PORT": "http://10.32.0.4:1025",
+    "server.urls": "http://0.0.0.0:5000"
+  },
+  "portDefinitions": [
+    {
+      "port": 10000,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ]
+}
