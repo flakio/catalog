@@ -25,12 +25,12 @@ spec:
     spec:
       containers:
       - name: catalogservice
-        image: flakio/catalogservice:8
+        image: flakio/catalogservice:9
         ports:
         - containerPort: 5000
         env: 
         - name: ELASTICSEARCH_PORT
-          value: "http://elasticsearch-catalog:1025"
+          value: "http://elasticsearch-catalog:9200"
 ---
 apiVersion: v1
 kind: Service
@@ -41,7 +41,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 1025
+  - port: 9200
   selector:
     app: elasticsearchcatalog
 ---
@@ -60,4 +60,4 @@ spec:
       - name: elasticsearchcatalog
         image: elasticsearch:2.3.3
         ports:
-        - containerPort: 1025
+        - containerPort: 9200
